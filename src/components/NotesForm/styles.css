@@ -1,0 +1,76 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  min-width: 400px;
+  min-height:95vh;
+  padding: 20px;
+  background-color: var(--dark-gray);
+}
+
+.menu div:not(.buttons) {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu div label {
+  font-weight: 300;
+  font-size: 24px;
+
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.menu div input , .menu div textarea {
+  background-color: var(--note-background);
+  font-size: 16px;
+  padding: 10px;
+}
+
+.menu div input {
+  border: 0;
+  height: 40px;
+
+  margin-bottom: 20px;
+}
+
+.menu div textarea {
+  resize: none;
+}
+
+.menu div textarea::-webkit-scrollbar {
+  width: 5px;
+}
+
+.menu div textarea::-webkit-scrollbar-track {
+ background-color: transparent;
+}
+
+.menu div textarea::-webkit-scrollbar-thumb {
+  background-color: transparent;
+ }
+
+ .menu div textarea:hover::-webkit-scrollbar-thumb {
+  background-color: #888;
+ }
+
+ .menu .buttons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.buttons > button {
+  cursor: pointer;
+  padding: 2px;
+  background: transparent;
+  border: none;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+
+  color: #ffffff;
+}

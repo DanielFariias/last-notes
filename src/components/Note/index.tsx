@@ -1,5 +1,5 @@
 import { useHighlight } from '../../context/HighlightContext'
-import { useNoteForm } from '../../context/NoteformContext'
+import { useNoteForm } from '../../context/notes-form-context'
 
 import './styles.css'
 

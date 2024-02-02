@@ -1,30 +1,25 @@
-import { useEffect } from 'react';
+import { useEffect } from 'react'
 import { FaBan, FaCheck } from 'react-icons/fa'
-import { useNoteForm } from '../../context/NoteformContext';
-import { useNoteList } from '../../context/NoteListContext';
+import { useNoteForm } from '../../context/notes-form-context'
+import { useNoteList } from '../../context/NoteListContext'
 import { useHighlight } from '../../context/HighlightContext'
 
-import './styles.css';
+import './styles.css'
 
 export function NotesForm() {
   const { noteList, setNoteList } = useNoteList()
   const { highlight, setHighlight } = useHighlight()
-  const {
-    title,
-    setTitle,
-    description,
-    setDescription
-  } = useNoteForm()
+  const { title, setTitle, description, setDescription } = useNoteForm()
 
   useEffect(() => {
     saveLocalNotes()
   }, [noteList])
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     if (highlight) {
-      noteList.map(note => {
+      noteList.map((note) => {
         if (note.id === highlight) {
           note.title = title
           note.description = description
@@ -33,13 +28,13 @@ export function NotesForm() {
       setHighlight(false)
       setNoteList([...noteList])
     } else {
-      setNoteList(state => [
+      setNoteList((state) => [
         ...state,
         {
           id: String(Math.floor(Math.random() * 10000)),
           title,
-          description
-        }
+          description,
+        },
       ])
     }
     clearForm()
@@ -55,7 +50,7 @@ export function NotesForm() {
   }
 
   return (
-    <form className='menu'>
+    <form className="menu">
       <div>
         <label htmlFor="title">Titulo</label>
         <input
@@ -78,18 +73,10 @@ export function NotesForm() {
         />
       </div>
       <div className="buttons">
-        <button
-          type="button"
-          className="cancel"
-          onClick={clearForm}
-        >
+        <button type="button" className="cancel" onClick={clearForm}>
           <FaBan className="icon" />
         </button>
-        <button
-          type="submit"
-          className="confirm"
-          onClick={handleSubmit}
-        >
+        <button type="submit" className="confirm" onClick={handleSubmit}>
           <FaCheck className="icon" />
         </button>
       </div>

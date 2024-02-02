@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from 'react'
 
 const NoteListContext = createContext()
 
@@ -10,7 +10,7 @@ export const NoteListProvider = ({ children }) => {
     <NoteListContext.Provider
       value={{
         noteList,
-        setNoteList
+        setNoteList,
       }}
     >
       {children}
@@ -25,6 +25,6 @@ export const useNoteList = () => {
 
   return {
     noteList,
-    setNoteList
+    setNoteList,
   }
 }

@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect } from 'react'
 
-import { useHighlight } from '../../context/HighlightContext';
-import { useNoteForm } from '../../context/NoteformContext';
-import { useNoteList } from '../../context/NoteListContext';
-import { Note } from '../Note';
+import { useHighlight } from '../../context/HighlightContext'
+import { useNoteForm } from '../../context/notes-form-context'
+import { useNoteList } from '../../context/NoteListContext'
+import { Note } from '../Note'
 
-import './styles.css';
+import './styles.css'
 
 export const Notes = () => {
   const { noteList, setNoteList } = useNoteList()
@@ -18,7 +18,7 @@ export const Notes = () => {
 
   useEffect(() => {
     if (highlight) {
-      const highlightedNote = noteList.find(note => note.id === highlight)
+      const highlightedNote = noteList.find((note) => note.id === highlight)
 
       setTitle(highlightedNote.title)
       setDescription(highlightedNote.description)
@@ -41,7 +41,7 @@ export const Notes = () => {
 
   return (
     <section className="notes">
-      {noteList.map(note => (
+      {noteList.map((note) => (
         <Note
           key={note.id}
           id={note.id}
@@ -50,8 +50,7 @@ export const Notes = () => {
           highlight={highlight}
           setHighlight={setHighlight}
         />
-      )
-      )}
+      ))}
     </section>
   )
 }
